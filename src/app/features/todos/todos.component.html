@@ -1,0 +1,12 @@
+<nxt-todo-new (addTodo)="aggiungiTodo($event)"></nxt-todo-new>
+<hr>
+<div class="todos">
+    <nxt-todo class="todos__todo"
+    *ngFor="let tmp of items"
+    [item]="tmp"
+    (changeState)="cambiaStato($event)"
+    (delete)="cancellaTodo($event)"
+    ></nxt-todo>
+    <hr>
+    <button type="button" (click)="generaTodo()">ADD TODO</button>
+</div>

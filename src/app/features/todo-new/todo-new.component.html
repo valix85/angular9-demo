@@ -1,0 +1,16 @@
+<div class="todo__new">
+    <h2>Nuovo Todo</h2>
+    <form #f="ngForm" (submit)="creaTodo(f)">        
+            <label for="strTitolo">Titolo</label><br>
+            <input type="text" id="strTitolo" [ngModel]="dati.titolo" name="titolo" required />   
+            <br>
+            <label for="strContent">Contenuto</label><br>
+            <textarea id="strContent" [ngModel]="dati.contenuto" name="contenuto"></textarea>
+            <br>
+            <button type="submit" [disabled]="f.invalid" >AGGIUNGI</button>
+    </form>
+<!--
+    <div>DATI:<br>{{dati | json}}</div>
+    <div>FORM:<br>{{f.value | json}}</div>
+    -->
+</div>

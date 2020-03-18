@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+uso variaibli negli stili di angular: https://coryrylan.com/blog/theming-angular-apps-with-css-custom-properties
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=latin-ext');
+
+
+:root {
+    --primario: #a0015e;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+  _font-family: 'Operator Mono A','Operator Mono B','Source Code Pro','Menlo','Consolas','Monaco',monospace;
+}
+
+html, body {margin: 0; padding:0;}
+
+body {
+background: #CDCDCD;
+}
+
+input, textarea {
+  margin-bottom: 8px;
+  width:100%;
+  resize: none;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+
+.page {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+
+
+
+label {
+
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+
+
+@media screen and (max-width: 768px) {   
+      .page {
+          max-width: 80%;
+          margin-top: 15px;
+      }   
+  }

@@ -1,0 +1,16 @@
+<div class="todo" [ngClass]="{'complete':item.done, 'notComplete':item.done!=true}" data-id="{{item.id}}" *ngIf="item">
+    <h3 class="todo__title">{{item.title}}</h3>
+    <p class="todo__content" [innerHTML]="item.content" ></p>
+    
+    <span *ngIf="!item.done" class="todo__status--ok">
+        DA FARE <span type="button" (click)="completa()" ><i class="fas fa-check"></i></span>
+    </span>
+
+    <span *ngIf="item.done" class="todo__status--not">
+        COMPLETATO <span (click)="completa()"><i class="fas fa-times"></i></span>
+    </span>
+
+    <span class="todo__delete">
+        <span (click)="cancella()"><i class="far fa-trash-alt"></i></span>
+    </span>
+</div>

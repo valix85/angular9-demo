@@ -1,0 +1,14 @@
+<div>
+    <p>hello {{persona.nome}}</p>
+    <p>{{ persona.nome }}</p>
+    <p>{{ persona.cognome }}</p>
+    <p>{{ persona.eta }}</p>
+
+    <pre>{{persona|json}}</pre>
+
+    <input type="text" [ngModel]="persona.nome" #pippo />
+
+
+    <button type="button" (click)="cambia(pippo)">CAMBIA</button>
+</div>
+

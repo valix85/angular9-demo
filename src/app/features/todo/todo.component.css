@@ -1,0 +1,101 @@
+/*
+:host variabili per il componente,
+:root variabili generali ereditate dai componenti
+*/
+:host { 
+    --colore1: #09AB8C;
+}
+
+h3, p, span, div {
+    margin: 0; padding: 0;
+}
+
+.todo {
+    background-color: #FAFAFA;
+    padding: 15px;
+    border: 1px solid var(--colore1, #777);
+    margin-bottom: 8px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.todo .todo__title {
+    margin-bottom: 8px;
+    color: var(--colore1, #000);
+} 
+
+.todo .todo__content {
+    margin-bottom: 16px;
+}
+
+.todo .todo__status--ok,
+.todo .todo__status--not,
+.todo .todo__delete {
+    font-size:0.8rem;
+    _margin-top:16px;
+    display: inline-block;
+    color: #888;    
+}
+
+.todo .todo__status--ok span,
+.todo .todo__status--not span,
+.todo .todo__delete span {
+    cursor: pointer;
+    background: #CCC;
+    padding: 4px 6px;
+    border:1px solid #999;
+    border-radius: 4px;  
+    transition: all 0.2s ease-in-out; 
+}
+
+.todo .todo__status--ok span:hover,
+.todo .todo__status--not span:hover,
+.todo .todo__delete span:hover {
+    background: #999;
+}
+
+.todo .todo__delete {
+    transition: all 1s ease-in-out; 
+}
+.todo .todo__delete:hover {
+    transform: rotate(360deg);
+}
+
+.todo .todo__delete span:hover {
+    color: #A00;
+    font-size:1.4em;  
+    border-radius: 50%; 
+      
+}
+
+
+.todo .todo__status--ok span {
+    color: green;
+}
+.todo .todo__status--not span {
+    color: rgb(190, 1, 1);
+}
+
+.todo .todo__delete {
+    position: absolute;
+    top:19px; right:0px;
+    
+}
+
+.todo .todo__delete span {
+    border-radius:0px;
+    border:none; 
+    box-sizing: border-box;
+}
+
+.complete {
+  _background: #666;
+  opacity: .5;
+  text-decoration: line-through;
+
+
+}
+
+.notComplete {
+  /*background: inherit;*/
+}
