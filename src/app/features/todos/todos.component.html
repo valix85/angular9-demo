@@ -1,12 +1,25 @@
-<nxt-todo-new (addTodo)="aggiungiTodo($event)"></nxt-todo-new>
-<hr>
-<div class="todos">
-    <nxt-todo class="todos__todo"
+
+<div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+        <nxt-todo-new (addTodo)="aggiungiTodo($event)"></nxt-todo-new>
+    </div>
+</div>
+
+
+
+<div class="row todos mb-4">
+    <nxt-todo class="todos__todo col-xs-12 col-md-6 col-lg-4 col-xl-3"
     *ngFor="let tmp of items"
     [item]="tmp"
     (changeState)="cambiaStato($event)"
     (delete)="cancellaTodo($event)"
     ></nxt-todo>
-    <hr>
-    <button type="button" (click)="generaTodo()">ADD TODO</button>
 </div>
+
+<div class="row mb-4">
+    <div class="col-xs-12 col-md-6 offset-md-3">
+        <button class="btn btn-primary btn-block btn-lg" type="button" (click)="generaTodo()">ADD TODO</button>
+    </div>
+</div>
+
+
