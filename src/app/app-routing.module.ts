@@ -4,6 +4,8 @@ import { TodosComponent } from './features/todos/todos.component';
 import { NotFoundComponent } from './features/page/not-found/not-found.component';
 import { AboutComponent } from './features/page/about/about.component';
 import { HomeComponent } from './features/page/home/home.component';
+import { TodoItemComponent } from './features/page/todo-item/todo-item.component';
+import { RandomGuard } from './core/guard/random.guard';
 
 
 
@@ -13,7 +15,9 @@ const appRoutes: Routes = [
         component: TodosComponent,
         data: { title: 'Todo List 2020' }
     },
-    { path: 'about', component: AboutComponent},
+    { path: 'todo/:todoId', component: TodoItemComponent },
+    { path: 'todo', component: TodoItemComponent },
+    { path: 'about', component: AboutComponent, canActivate: [RandomGuard]},
     /*
     { path: '',
       redirectTo: '/home',
@@ -21,6 +25,7 @@ const appRoutes: Routes = [
     },
     */
     { path: '', component: HomeComponent},
+    { path: '404', component: NotFoundComponent},
     { path: '**', component: NotFoundComponent}
 ];
 

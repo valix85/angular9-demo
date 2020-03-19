@@ -14,6 +14,7 @@ import { AboutComponent } from './features/page/about/about.component';
 import { NavbarComponent } from './features/ui/navbar/navbar.component';
 import { HomeComponent } from './features/page/home/home.component';
 import { FooterComponent } from './features/ui/footer/footer.component';
+import { TodoItemComponent } from './features/page/todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FooterComponent } from './features/ui/footer/footer.component';
     AboutComponent,
     NavbarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,

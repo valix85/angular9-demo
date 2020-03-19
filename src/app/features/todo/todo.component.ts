@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from 'src/app/core/model/todo';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class TodoComponent implements OnInit {
   @Output() changeState: EventEmitter<Todo> = new EventEmitter();
   @Output() delete: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     // console.log(this.item);
@@ -27,6 +28,17 @@ export class TodoComponent implements OnInit {
 
   cancella(): void {
     this.delete.emit(this.item);
+  }
+
+  vaiATodo(): void {
+    this.router.navigateByUrl(`/todo/${this.item.id}`);
+  }
+
+  vaiATodoObj(): void {
+    this.router.navigate(['/todo'],
+    // {state: { data: { ...{mynode: {...this.item} } } } }
+    { state : {todoItem: this.item }   }
+    );
   }
 
 } // end class

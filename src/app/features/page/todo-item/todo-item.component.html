@@ -1,0 +1,12 @@
+
+<div class="card" *ngIf="item">
+    <div class="card-header" [ngClass]="{'complete':item.done, 'notComplete':item.done!=true}" data-id="{{item.id}}" *ngIf="item">
+    {{item.title}}
+    </div>
+    <div class="card-body">
+    <p class="card-text" [innerHtml]="item.content" [ngClass]="{'complete':item.done, 'notComplete':item.done!=true}"></p>
+    <span class="todo__torna">
+        <button type="button" class="btn btn-secondary" routerLink="/todos">TORNA INDIETRO</button>
+    </span>
+    </div>
+</div>

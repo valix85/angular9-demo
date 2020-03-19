@@ -46,6 +46,10 @@ export class TodoService {
     return this.http.get<Todo[]>(`${this.baseUrl}/todos`);
   }
 
+  getTodoById(id: number): Observable<Todo> {
+    return this.http.get<Todo>(`${this.baseUrl}/todos/${id}`);
+  }
+
   switchState(id: number): Observable<Todo> {
     const idx = this.items.findIndex(el => el.id === id);
     this.items[idx].done = !this.items[idx].done;

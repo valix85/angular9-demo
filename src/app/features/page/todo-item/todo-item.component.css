@@ -1,0 +1,18 @@
+.card{
+    margin: 50px;
+  }
+  .todo__torna{
+    position: absolute;
+    bottom: 0; left:0;
+    border-bottom-left-radius: 0;
+  }
+  .card-text{
+    padding-bottom: 50px;
+  }
+  .card-header{
+    font-weight: bolder;
+    font-size: 60px;
+  }
+  .card-text{
+    font-size: 30px;
+  }
