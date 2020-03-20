@@ -1,0 +1,12 @@
+
+.parent {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: "navbar"
+                         "main"
+                         "footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+}

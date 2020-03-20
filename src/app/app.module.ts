@@ -8,13 +8,16 @@ import { HelloComponent } from './features/hello/hello.component';
 import { TodosComponent } from './features/todos/todos.component';
 import { TodoComponent } from './features/todo/todo.component';
 import { TodoNewComponent } from './features/todo-new/todo-new.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NotFoundComponent } from './features/page/not-found/not-found.component';
 import { AboutComponent } from './features/page/about/about.component';
 import { NavbarComponent } from './features/ui/navbar/navbar.component';
 import { HomeComponent } from './features/page/home/home.component';
 import { FooterComponent } from './features/ui/footer/footer.component';
 import { TodoItemComponent } from './features/page/todo-item/todo-item.component';
+import { SpinnerComponent } from './features/ui/spinner/spinner.component';
+import { LoaderInterceptor } from './core/interceptor/loader.interceptor';
+import { LoaderService } from './core/services/loader.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { TodoItemComponent } from './features/page/todo-item/todo-item.component
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { TodoItemComponent } from './features/page/todo-item/todo-item.component
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

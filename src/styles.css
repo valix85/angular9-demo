@@ -17,6 +17,10 @@ uso variaibli negli stili di angular: https://coryrylan.com/blog/theming-angular
   transition: all 0.25s ease-in-out;
 }
 
+.text-red {
+  color:#bb0000;
+}
+
 /*
 html, body {margin: 0; padding:0;}
 
