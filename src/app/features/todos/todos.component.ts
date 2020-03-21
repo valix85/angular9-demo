@@ -39,6 +39,10 @@ export class TodosComponent implements OnInit, OnDestroy  {
     this.obs1 = todoService.getTodos()
       .subscribe(risp => {
         this.items = risp;
+      },
+      error => {
+        console.error(error);
+        alert(error);
       });
   }
 

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 import { Todo } from '../model/todo';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError  } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 import { environment as env } from '../../../environments/environment';
 
 
@@ -43,7 +44,11 @@ export class TodoService {
 
   getTodos(): Observable<Todo[]> {
     // return this.items;
-    return this.http.get<Todo[]>(`${this.baseUrl}/todos`);
+    return this.http.get<Todo[]>(`${this.baseUrl}/todos`)
+    .pipe(
+      retry(1), // prova una volta e poi vai oltre
+      catchError(this.errorHandler) // cattura errore e fallo gestire alla function nel parametro
+    );
   }
 
   getTodoById(id: number): Observable<Todo> {
@@ -72,6 +77,26 @@ export class TodoService {
    console.log('dopo await', this.items );
    return ;
   }
+
+
+  // handle error with interceptor or custom function
+  // https://medium.com/angular-in-depth/expecting-the-unexpected-best-practices-for-error-handling-in-angular-21c3662ef9e4
+  // https://www.positronx.io/angular-error-handling-tutorial-with-examples/
+  // https://www.positronx.io/angular-8-httpclient-http-tutorial-build-consume-restful-api/#tc_4439_07
+
+  // Error handling
+  errorHandler(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+ }
 
 
 }

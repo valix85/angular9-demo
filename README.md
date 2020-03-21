@@ -21,10 +21,11 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 * Spinner
 * Environments
 * Bootstrap 4
+* Error handler
 
 ## css
 
 * basi del linguaggio
 * grid
 * animation
-* e molto altro...
+* e molto altro ...
